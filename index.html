@@ -57,7 +57,7 @@ h1{
     margin-bottom:15px;
 }
 
-/* ===== GALLERY ===== */
+/* GALLERY */
 .gallery{
     display:flex;
     gap:16px;
@@ -83,7 +83,6 @@ h1{
     50%{transform:translateY(-6px) rotate(1deg)}
 }
 
-/* FIX RASIO FOTO */
 .polaroid img{
     width:100%;
     aspect-ratio:4/5;
@@ -162,18 +161,18 @@ h1{
 <!-- PHOTOS -->
 <div class="gallery">
     <div class="polaroid">
-        <img src="foto1.jpg">
+        <img src="foto1.jpg" alt="">
         <div class="caption">your smile 💞</div>
     </div>
 
     <div class="polaroid">
-        <img src="foto2.jpg">
-        <div class="caption">My safe place 🤍</div>
+        <img src="foto2.jpg" alt="">
+        <div class="caption">my safe place 🤍</div>
     </div>
 
     <div class="polaroid">
-        <img src="foto3.jpg">
-        <div class="caption">Always us ✨</div>
+        <img src="foto3.jpg" alt="">
+        <div class="caption">always us ✨</div>
     </div>
 </div>
 
@@ -211,37 +210,41 @@ h1{
     <b>I choose you. Today, tomorrow, always ♡</b>
 </div>
 
-<a href="http<a href="https://wa.me/6285363625159" class="btn">Chat Aku 💬</a>ript>
+<a href="https://wa.me/6285363625159" class="btn">Chat Aku 💬</a>
+
+</div>
+
+<script>
 /* MUSIC */
-let song=document.getElementById("song");
-let icon=document.getElementById("icon");
-let text=document.getElementById("text");
-let play=false;
+let song = document.getElementById("song");
+let icon = document.getElementById("icon");
+let text = document.getElementById("text");
+let play = false;
 
 function toggleMusic(){
     if(play){
         song.pause();
-        icon.innerHTML="▶️";
-        text.innerHTML="Play Our Song";
-        play=false;
-    }else{
+        icon.innerHTML = "▶️";
+        text.innerHTML = "Play Our Song";
+        play = false;
+    } else {
         song.play();
-        icon.innerHTML="⏸️";
-        text.innerHTML="Now Playing...";
-        play=true;
+        icon.innerHTML = "⏸️";
+        text.innerHTML = "Now Playing...";
+        play = true;
     }
 }
 
 /* HEART RAIN */
-setInterval(()=>{
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="💗";
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration=(3+Math.random()*3)+"s";
+setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💗";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (3 + Math.random() * 3) + "s";
     document.body.appendChild(h);
-    setTimeout(()=>h.remove(),6000);
-},500);
+    setTimeout(() => h.remove(), 6000);
+}, 500);
 </script>
 
 </body>
