@@ -8,133 +8,146 @@
 <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --primary: #ff8fab;
-    --bg: #fff0f6;
-    --text: #5d4037;
+:root{
+    --pink:#ff8fab;
+    --soft:#fff0f6;
+    --text:#5d4037;
 }
 
-body {
-    margin: 0;
-    padding: 20px;
-    font-family: 'Gaegu', cursive;
-    background-color: var(--bg);
+body{
+    margin:0;
+    padding:20px;
+    font-family:'Gaegu', cursive;
+    background:var(--soft);
     background-image:
         linear-gradient(#ffd6e0 1px, transparent 1px),
         linear-gradient(90deg, #ffd6e0 1px, transparent 1px);
-    background-size: 28px 28px;
-    display: flex;
-    justify-content: center;
+    background-size:26px 26px;
+    display:flex;
+    justify-content:center;
 }
 
-.container {
-    width: 100%;
-    max-width: 400px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 18px;
-    border: 3px solid #000;
-    box-shadow: 10px 10px 0 #000;
-    padding: 20px;
-    position: relative;
-    text-align: center;
+.container{
+    max-width:400px;
+    width:100%;
+    background:rgba(255,255,255,.95);
+    border-radius:20px;
+    border:3px solid #000;
+    box-shadow:10px 10px 0 #000;
+    padding:20px;
+    position:relative;
+    animation:pop .6s ease;
 }
 
-/* Title */
-h1 {
-    font-size: 2.7rem;
-    margin: 5px 0;
-    text-shadow: 3px 3px 0 #ffc2d1;
+@keyframes pop{
+    from{transform:scale(.9);opacity:0}
+    to{transform:scale(1);opacity:1}
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+h1{
+    font-size:2.8rem;
+    text-align:center;
+    margin:0;
+    text-shadow:3px 3px 0 #ffc2d1;
 }
 
-/* Gallery */
-.gallery {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
+.subtitle{
+    text-align:center;
+    font-size:1.2rem;
+    margin-bottom:15px;
 }
 
-.gallery::-webkit-scrollbar {
-    display: none;
+/* ===== GALLERY ===== */
+.gallery{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:10px;
+}
+.gallery::-webkit-scrollbar{display:none;}
+
+.polaroid{
+    flex:0 0 82%;
+    background:#fff;
+    padding:14px 14px 42px;
+    border:2px solid #000;
+    box-shadow:5px 5px 0 rgba(0,0,0,.2);
+    scroll-snap-align:center;
+    transform:rotate(2deg);
+    animation:float 4s ease-in-out infinite;
 }
 
-.polaroid {
-    flex: 0 0 80%;
-    scroll-snap-align: center;
-    background: #fff;
-    padding: 15px 15px 45px;
-    border: 2px solid #000;
-    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
-    transform: rotate(2deg);
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(2deg)}
+    50%{transform:translateY(-6px) rotate(1deg)}
 }
 
-.polaroid img {
-    width: 100%;
-    border-radius: 6px;
+/* FIX RASIO FOTO */
+.polaroid img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    object-position:center;
+    border-radius:8px;
+    background:#eee;
 }
 
-.caption {
-    margin-top: 10px;
-    font-weight: bold;
+.caption{
+    text-align:center;
+    font-size:1.1rem;
+    margin-top:10px;
 }
 
-/* Music */
-.music-player {
-    margin: 15px auto;
-    background: #000;
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 30px;
-    display: inline-flex;
-    gap: 8px;
-    cursor: pointer;
-    box-shadow: 5px 5px 0 #888;
+/* MUSIC */
+.music{
+    margin:15px auto;
+    background:#000;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:30px;
+    display:inline-flex;
+    gap:8px;
+    align-items:center;
+    cursor:pointer;
+    box-shadow:5px 5px 0 #888;
 }
 
-/* Message */
-.message-box {
-    background: #fff0f5;
-    border: 2px dashed var(--primary);
-    padding: 18px;
-    border-radius: 12px;
-    font-size: 1.25rem;
-    line-height: 1.6;
-    text-align: left;
-    margin-top: 20px;
+/* MESSAGE */
+.message{
+    margin-top:20px;
+    background:#fff0f5;
+    border:2px dashed var(--pink);
+    border-radius:14px;
+    padding:18px;
+    font-size:1.25rem;
+    line-height:1.6;
 }
 
-/* Button */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    background: var(--primary);
-    color: #fff;
-    padding: 10px 22px;
-    font-size: 1.4rem;
-    border-radius: 12px;
-    text-decoration: none;
-    border: 2px solid #000;
+/* BUTTON */
+.btn{
+    display:block;
+    margin:20px auto 0;
+    background:var(--pink);
+    color:#fff;
+    text-align:center;
+    padding:12px;
+    font-size:1.4rem;
+    border-radius:14px;
+    text-decoration:none;
+    border:2px solid #000;
 }
 
-/* Floating hearts */
-.heart {
-    position: fixed;
-    top: -10px;
-    font-size: 20px;
-    animation: fall linear infinite;
+/* FLOATING HEART */
+.heart{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation:fall linear infinite;
+    pointer-events:none;
 }
-
-@keyframes fall {
-    to {
-        transform: translateY(110vh);
-        opacity: 0;
-    }
+@keyframes fall{
+    to{transform:translateY(110vh);opacity:0}
 }
 </style>
 </head>
@@ -144,53 +157,58 @@ h1 {
 <div class="container">
 
 <h1>Happy Birthday ♡</h1>
-<div class="subtitle">To my favorite person 💕</div>
+<div class="subtitle">to my favorite human ever 💗</div>
 
-<!-- FOTO -->
+<!-- PHOTOS -->
 <div class="gallery">
     <div class="polaroid">
         <img src="foto1.jpg">
-        <div class="caption">Your smile ✨</div>
+        <div class="caption">Me & You 💞</div>
     </div>
 
     <div class="polaroid">
         <img src="foto2.jpg">
-        <div class="caption">Me & You 💖</div>
+        <div class="caption">My safe place 🤍</div>
     </div>
 
     <div class="polaroid">
         <img src="foto3.jpg">
-        <div class="caption">My happiness 🤍</div>
+        <div class="caption">Always us ✨</div>
     </div>
 </div>
 
 <!-- MUSIC -->
-<div class="music-player" onclick="toggleMusic()">
+<div class="music" onclick="toggleMusic()">
     <span id="icon">▶️</span>
     <span id="text">Play Our Song</span>
 </div>
 
-<audio id="music" loop>
+<audio id="song" loop>
     <source src="lagu.mp3" type="audio/mpeg">
 </audio>
 
 <!-- MESSAGE -->
-<div class="message-box">
-    Hai sayang 🤍<br><br>
+<div class="message">
+    Hi baby 💗<br><br>
 
     Happy birthday yaaa 🎂  
-    I’m so lucky to have you in my life.  
-    Thank you for being my safe place,
-    my happiness, and my favorite person 🥺💕
+    I just wanna say…  
+    you’re literally my favorite person,  
+    my comfort zone, my home 🥺💞  
+
+    <br><br>
+    Thank you for loving me in your own way,
+    for staying, for understanding,
+    and for being you.
 
     <br><br>
     Semoga kamu selalu sehat, bahagia,
-    dan semua mimpi kamu pelan-pelan tercapai ✨  
-    Aku bakal selalu ada buat kamu —
-    today, tomorrow, and always 💖
+    and everything you wish for comes true ✨  
+    Aku mungkin ga perfect,
+    but my love for you is 100% real 🤍
 
     <br><br>
-    <b>I love you so much ♡</b>
+    <b>I choose you. Today, tomorrow, always ♡</b>
 </div>
 
 <a href="https://wa.me/628xxxxxxxxxx" class="btn">Chat Aku 💬</a>
@@ -198,36 +216,36 @@ h1 {
 </div>
 
 <script>
-var music = document.getElementById("music");
-var icon = document.getElementById("icon");
-var text = document.getElementById("text");
-var play = false;
+/* MUSIC */
+let song=document.getElementById("song");
+let icon=document.getElementById("icon");
+let text=document.getElementById("text");
+let play=false;
 
-function toggleMusic() {
+function toggleMusic(){
     if(play){
-        music.pause();
-        icon.innerHTML = "▶️";
-        text.innerHTML = "Play Our Song";
-        play = false;
-    } else {
-        music.play();
-        icon.innerHTML = "⏸️";
-        text.innerHTML = "Now Playing...";
-        play = true;
+        song.pause();
+        icon.innerHTML="▶️";
+        text.innerHTML="Play Our Song";
+        play=false;
+    }else{
+        song.play();
+        icon.innerHTML="⏸️";
+        text.innerHTML="Now Playing...";
+        play=true;
     }
 }
 
-// Hearts fall
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💗";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6000);
-}, 500);
+/* HEART RAIN */
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💗";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},500);
 </script>
 
 </body>
